@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 public class InputController : MonoBehaviour
 {
     [SerializeField] string OwnerID;
@@ -9,6 +10,8 @@ public class InputController : MonoBehaviour
     [SerializeField] GameObject Initial;
     [SerializeField] int selectPos;
     [SerializeField] int selectEndPos;
+    [SerializeField] GameObject NotesPrefab;
+    [SerializeField] GameObject Scrollpanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,8 +32,6 @@ public class InputController : MonoBehaviour
         }
         else
         {
-           // Debug.Log("OwnerID: "+ OwnerID);
-            //Debug.Log("Message: " + s);
             PlayerPrefs.SetString(OwnerID, s);
         }
     }
@@ -42,10 +43,9 @@ public class InputController : MonoBehaviour
         {
             InputField.GetComponent<TMP_InputField>().text = PlayerPrefs.GetString(OwnerID);
         }
-        
     }
 
-    public void ChangeSelectionColor()
+    public void RetrieveText()
     {
         var SP = selectPos;
         var SEP = selectEndPos;
@@ -59,7 +59,10 @@ public class InputController : MonoBehaviour
         {
             var OriginalText = InputField.GetComponent<TMP_InputField>().text;
             var SelectedText = OriginalText.Substring(SP, SEP - SP);
-            Debug.Log(SelectedText);
+            var NewNote = Instantiate(NotesPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+            NewNote.transform.SetParent(Scrollpanel.transform);
+            NewNote.GetComponent<NoteController>().CreateNote(SelectedText, OwnerID);
+
 
         }
 

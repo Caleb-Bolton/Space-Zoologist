@@ -2,26 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class LeftTabGroup : MonoBehaviour
+public class TabGroup : MonoBehaviour
 {
 
 
-    public List<LeftTabButton> tabButtons;
+    public List<TabButton> tabButtons;
     public Sprite tabIdle;
     public Sprite tabHover;
     public Sprite tabActive;
 
-    public LeftTabButton selectedTab;
+    public TabButton selectedTab;
     public List<GameObject> objectsToSwap;
-    public void Subscribe(LeftTabButton button){
+
+    public int leftTabIndex = 0;
+    public void Subscribe(TabButton button){
         if(tabButtons == null)
         {
-            tabButtons = new List<LeftTabButton>();
+            tabButtons = new List<TabButton>();
         }
         tabButtons.Add(button);
     }
 
-    public void OnTabEnter(LeftTabButton button)
+    public void OnTabEnter(TabButton button)
     {
         ResetTabs();
         if(selectedTab == null || button != selectedTab)
@@ -30,29 +32,41 @@ public class LeftTabGroup : MonoBehaviour
         }
         
     }
-    public void OnTabExit(LeftTabButton button)
+    public void OnTabExit(TabButton button)
     {
         ResetTabs();
     }
-    public void OnTabSelected(LeftTabButton button)
+    public void OnTabSelected(TabButton button)
     {
         selectedTab = button;
         ResetTabs();
         button.background.sprite = tabActive;
         int index = button.transform.GetSiblingIndex();
+        for (int i =0; i < objectsToSwap.Count; i++){
+            objectsToSwap[i].SetActive(false);
+        }
         for(int i =0; i < objectsToSwap.Count; i++){
             if (i == index){
-                objectsToSwap[i].SetActive(true);
-            }
-            else{
-                objectsToSwap[i].SetActive(false);
+                if (i < 4){
+                    leftTabIndex = i;
+                    objectsToSwap[i].SetActive(true);
+                    objectsToSwap[4].SetActive(true);
+                }
+                else if (i == 4){
+                    objectsToSwap[i].SetActive(true);
+                    objectsToSwap[leftTabIndex].SetActive(true);
+                }
+                else {
+                    objectsToSwap[i].SetActive(true);
+                }
+                break;
             }
         }
     }
 
     public void ResetTabs()
     {
-        foreach(LeftTabButton button in tabButtons)
+        foreach(TabButton button in tabButtons)
         {
             if(selectedTab!=null && button == selectedTab)
             {
