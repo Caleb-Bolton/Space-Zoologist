@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Goat
   m_EditorClassIdentifier: 
   AnimalName: Goat
-  NoteText: this is a default note
-  StickyNotes:
-  - a default note
+  NoteText: 12
+  StickyNotes: []

@@ -10839,7 +10839,7 @@ MonoBehaviour:
   CurrentAnimal: {fileID: 0}
   selectPos: 0
   selectEndPos: 0
-  NotesPrefab: {fileID: 4402803350034113534, guid: 974599fc1d122414981ad1cd4ad3f233,
+  NotesPrefab: {fileID: 3244874118983660294, guid: 974599fc1d122414981ad1cd4ad3f233,
     type: 3}
   Scrollpanel: {fileID: 7801048381652713293}
 --- !u!114 &1121742108
@@ -13177,7 +13177,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0

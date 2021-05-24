@@ -53,13 +53,20 @@ public class InputController : MonoBehaviour
             var SN = CurrentAnimal.StickyNotes[i];
             var NewNote = Instantiate(NotesPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
             NewNote.transform.SetParent(Scrollpanel.transform);
-            NewNote.GetComponent<NoteController>().CreateNote(SN, i);
+            NewNote.GetComponent<NoteController>().CreateNote(SN, i, this.gameObject);
         }
     }
 
     public void DeleteStickyNote(int index)
     {
         this.CurrentAnimal.StickyNotes.RemoveAt(index);
+        foreach (Transform child in Scrollpanel.transform)
+        {
+            if(child.gameObject.GetComponent<NoteController>().index > index)
+            {
+                child.gameObject.GetComponent<NoteController>().index -= 1;
+            }
+        }
     }
     public void RetrieveText()
     {
@@ -75,10 +82,10 @@ public class InputController : MonoBehaviour
         {
             var OriginalText = InputField.GetComponent<TMP_InputField>().text;
             var SelectedText = OriginalText.Substring(SP, SEP - SP);
-            this.CurrentAnimal.StickyNotes.Add(SelectedText);
             var NewNote = Instantiate(NotesPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
             NewNote.transform.SetParent(Scrollpanel.transform);
-            NewNote.GetComponent<NoteController>().CreateNote(SelectedText, this.CurrentAnimal.StickyNotes.Count);
+            NewNote.GetComponent<NoteController>().CreateNote(SelectedText, this.CurrentAnimal.StickyNotes.Count,this.gameObject);
+            this.CurrentAnimal.StickyNotes.Add(SelectedText);
         }
 
     }

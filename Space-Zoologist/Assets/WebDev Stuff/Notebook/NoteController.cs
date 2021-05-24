@@ -21,16 +21,18 @@ public class NoteController : MonoBehaviour
     }
     public void Close()
     {
+        InputController.GetComponent<InputController>().DeleteStickyNote(index);
         Destroy(this.gameObject);
     }
-    public void CreateNote(string s, int index)
+    public void CreateNote(string s, int index, GameObject IC)
     {
         if(s != null)
         {
+            this.InputController = IC;
             note = s;
             this.index = index;
             TextContainer.GetComponent<TMP_Text>().text = s;
-            //TODO:: Save Notes
+            
         }
 
     }
