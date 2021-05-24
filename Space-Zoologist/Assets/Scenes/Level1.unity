@@ -2456,11 +2456,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1121742107}
-        m_MethodName: LoadText
+        m_MethodName: LoadAnimal
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 392800681}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: b894bc10af787fd48b96bf231648a420,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: SaveDataPerAnimal, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4251,7 +4252,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -381.8999, y: -41.52295}
+  m_AnchoredPosition: {x: -381.9004, y: -41.52295}
   m_SizeDelta: {x: -1367.0986, y: -384.96246}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &594351271
@@ -5470,11 +5471,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1121742107}
-        m_MethodName: LoadText
+        m_MethodName: LoadAnimal
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 702142551}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 1bf4b4c762447e34c925e84a6912a3c1,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: SaveDataPerAnimal, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7681,7 +7683,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 99.88652, y: -40.33107}
+  m_AnchoredPosition: {x: 99.88672, y: -40.331055}
   m_SizeDelta: {x: 199.77283, y: 80.66214}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &832864153
@@ -8168,7 +8170,7 @@ MonoBehaviour:
     no laughs?!  Ah well, obscure non-Newtonian fluid humor. Do you know oobleck?\",\"parentUIDs\":[46,46],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Star\",\"OptionUIDs\":[80,82],\"SpeechUID\":-1,\"TimeUntilAdvance\":0,\"Volume\":0},{\"EditorInfo\":{\"isRoot\":false,\"xPos\":-124.5,\"yPos\":-4115},\"ID\":86,\"TMPFontGUID\":null,\"Text\":\"I
     knew you were a fellow nerd!\",\"parentUIDs\":[80,80],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Star\",\"OptionUIDs\":[],\"SpeechUID\":81,\"TimeUntilAdvance\":0,\"Volume\":0},{\"EditorInfo\":{\"isRoot\":false,\"xPos\":137.5,\"yPos\":-4119},\"ID\":87,\"TMPFontGUID\":null,\"Text\":\"You
     gotta look it up it is fantastic stuff! If you press on it slowly it is like
-    a liquid, but hit it fast and it is like a brick wall!\\n\",\"parentUIDs\":[82,82],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Star\",\"OptionUIDs\":[],\"SpeechUID\":81,\"TimeUntilAdvance\":0,\"Volume\":0},{\"EditorInfo\":{\"isRoot\":false,\"xPos\":-144.5,\"yPos\":-2923},\"ID\":90,\"TMPFontGUID\":null,\"Text\":\"Great! 
+    a liquid, but hit it fast and it is like a brick wall!\\n\",\"parentUIDs\":[82,82],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Star\",\"OptionUIDs\":[],\"SpeechUID\":81,\"TimeUntilAdvance\":0,\"Volume\":0},{\"EditorInfo\":{\"isRoot\":false,\"xPos\":-144.5,\"yPos\":-2923},\"ID\":90,\"TMPFontGUID\":null,\"Text\":\"Great!
     However, these aren\u2019t quite like any goat you\u2019ve ever worked with on
     earth, so don\u2019t be surprised if they don\u2019t like the things that terran
     goats like!\",\"parentUIDs\":[88,88],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Star\",\"OptionUIDs\":[],\"SpeechUID\":92,\"TimeUntilAdvance\":0,\"Volume\":0},{\"EditorInfo\":{\"isRoot\":false,\"xPos\":141.5,\"yPos\":-2919},\"ID\":91,\"TMPFontGUID\":null,\"Text\":\"No
@@ -8245,7 +8247,7 @@ MonoBehaviour:
     think they have pretty strict requirements for water, and you need a minimum
     number of aqua units per goat, which is why the current enclosure has kept them
     stable, whereas we were on the brink of losing them for a while.  Truly, we started
-    with 50 and now are down to these 4!   \",\"parentUIDs\":[118,118],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Star\",\"OptionUIDs\":[],\"SpeechUID\":124,\"TimeUntilAdvance\":0,\"Volume\":0},{\"EditorInfo\":{\"isRoot\":false,\"xPos\":-26,\"yPos\":536},\"ID\":124,\"TMPFontGUID\":null,\"Text\":\"Ouch! 
+    with 50 and now are down to these 4!   \",\"parentUIDs\":[118,118],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Star\",\"OptionUIDs\":[],\"SpeechUID\":124,\"TimeUntilAdvance\":0,\"Volume\":0},{\"EditorInfo\":{\"isRoot\":false,\"xPos\":-26,\"yPos\":536},\"ID\":124,\"TMPFontGUID\":null,\"Text\":\"Ouch!
     There it goes again!  I have to run to the Strot area.  Good luck!  If you need
     me you can try calling me with the COMMUNICATOR tool.\",\"parentUIDs\":[121,121],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Star\",\"OptionUIDs\":[],\"SpeechUID\":120,\"TimeUntilAdvance\":0,\"Volume\":0},{\"EditorInfo\":{\"isRoot\":false,\"xPos\":-231.5,\"yPos\":-3352},\"ID\":125,\"TMPFontGUID\":null,\"Text\":\"Your
     control panel will be located in the top right, and has multiple functionalities
@@ -9795,7 +9797,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 99.887, y: -187}
+  m_AnchoredPosition: {x: 99.88672, y: -187}
   m_SizeDelta: {x: 199.77283, y: 80.66214}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &995663569
@@ -10833,7 +10835,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OwnerID: 
   InputField: {fileID: 1121742105}
-  Initial: {fileID: 392800681}
+  InitialAnimal: {fileID: 11400000, guid: b894bc10af787fd48b96bf231648a420, type: 2}
+  CurrentAnimal: {fileID: 0}
   selectPos: 0
   selectEndPos: 0
   NotesPrefab: {fileID: 4402803350034113534, guid: 974599fc1d122414981ad1cd4ad3f233,
@@ -10900,7 +10903,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1121742107}
-        m_MethodName: SaveInput
+        m_MethodName: SaveInputField
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11000,7 +11003,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1124880971
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11231,11 +11234,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1121742107}
-        m_MethodName: LoadText
+        m_MethodName: LoadAnimal
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1145452636}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 23793bac1c8926c40a8e920bdcb54b08,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: SaveDataPerAnimal, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -11358,7 +11362,7 @@ MonoBehaviour:
     no laughs?!  Ah well, obscure non-Newtonian fluid humor. Do you know oobleck?\",\"parentUIDs\":[46,46],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Star\",\"OptionUIDs\":[80,82],\"SpeechUID\":-1,\"TimeUntilAdvance\":0,\"Volume\":0},{\"EditorInfo\":{\"isRoot\":false,\"xPos\":-59,\"yPos\":701},\"ID\":86,\"TMPFontGUID\":null,\"Text\":\"I
     knew you were a fellow nerd!\",\"parentUIDs\":[80,80],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Star\",\"OptionUIDs\":[],\"SpeechUID\":81,\"TimeUntilAdvance\":0,\"Volume\":0},{\"EditorInfo\":{\"isRoot\":false,\"xPos\":203,\"yPos\":697},\"ID\":87,\"TMPFontGUID\":null,\"Text\":\"You
     gotta look it up it is fantastic stuff! If you press on it slowly it is like
-    a liquid, but hit it fast and it is like a brick wall!\\n\",\"parentUIDs\":[82,82],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Star\",\"OptionUIDs\":[],\"SpeechUID\":81,\"TimeUntilAdvance\":0,\"Volume\":0},{\"EditorInfo\":{\"isRoot\":false,\"xPos\":-79,\"yPos\":1893},\"ID\":90,\"TMPFontGUID\":null,\"Text\":\"Great! 
+    a liquid, but hit it fast and it is like a brick wall!\\n\",\"parentUIDs\":[82,82],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Star\",\"OptionUIDs\":[],\"SpeechUID\":81,\"TimeUntilAdvance\":0,\"Volume\":0},{\"EditorInfo\":{\"isRoot\":false,\"xPos\":-79,\"yPos\":1893},\"ID\":90,\"TMPFontGUID\":null,\"Text\":\"Great!
     However, these aren\u2019t quite like any goat you\u2019ve ever worked with on
     earth, so don\u2019t be surprised if they don\u2019t like the things that terran
     goats like!\",\"parentUIDs\":[88,88],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Star\",\"OptionUIDs\":[],\"SpeechUID\":92,\"TimeUntilAdvance\":0,\"Volume\":0},{\"EditorInfo\":{\"isRoot\":false,\"xPos\":207,\"yPos\":1897},\"ID\":91,\"TMPFontGUID\":null,\"Text\":\"No
@@ -11438,7 +11442,7 @@ MonoBehaviour:
     think they have pretty strict requirements for water, and you need a minimum
     number of aqua units per goat, which is why the current enclosure has kept them
     stable, whereas we were on the brink of losing them for a while.  Truly, we started
-    with 50 and now are down to these 4!   \",\"parentUIDs\":[118,118],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Star\",\"OptionUIDs\":[],\"SpeechUID\":124,\"TimeUntilAdvance\":0,\"Volume\":0},{\"EditorInfo\":{\"isRoot\":false,\"xPos\":39.5,\"yPos\":5352},\"ID\":124,\"TMPFontGUID\":null,\"Text\":\"Ouch! 
+    with 50 and now are down to these 4!   \",\"parentUIDs\":[118,118],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Star\",\"OptionUIDs\":[],\"SpeechUID\":124,\"TimeUntilAdvance\":0,\"Volume\":0},{\"EditorInfo\":{\"isRoot\":false,\"xPos\":39.5,\"yPos\":5352},\"ID\":124,\"TMPFontGUID\":null,\"Text\":\"Ouch!
     There it goes again!  I have to run to the Strot area.  Good luck!  If you need
     me you can try calling me with the COMMUNICATOR tool.\",\"parentUIDs\":[121,121],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Star\",\"OptionUIDs\":[],\"SpeechUID\":120,\"TimeUntilAdvance\":0,\"Volume\":0},{\"EditorInfo\":{\"isRoot\":false,\"xPos\":-166,\"yPos\":1464},\"ID\":125,\"TMPFontGUID\":null,\"Text\":\"Your
     control panel will be located in the top right, and has multiple functionalities
@@ -12211,7 +12215,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5.743164, y: -3.3000488}
+  m_AnchoredPosition: {x: 5.743164, y: -3.2998047}
   m_SizeDelta: {x: -162.15845, y: -195.57202}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1261381069
@@ -12935,7 +12939,7 @@ GameObject:
   - component: {fileID: 1309343372}
   - component: {fileID: 1309343371}
   m_Layer: 5
-  m_Name: Hodge
+  m_Name: Hedge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13021,11 +13025,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1121742107}
-        m_MethodName: LoadText
+        m_MethodName: LoadAnimal
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1309343369}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 099350411f181e84db28c20c2463747f,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: SaveDataPerAnimal, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -13113,7 +13118,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -348.6001, y: 15.699951}
+  m_AnchoredPosition: {x: -348.5996, y: 15.700195}
   m_SizeDelta: {x: -1309.113, y: -207.77496}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1331019778
@@ -15576,7 +15581,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1432493068
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15670,7 +15675,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 99.886, y: -482}
+  m_AnchoredPosition: {x: 99.88574, y: -482}
   m_SizeDelta: {x: 199.77283, y: 80.66214}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1464827809
@@ -16222,11 +16227,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1121742107}
-        m_MethodName: LoadText
+        m_MethodName: LoadAnimal
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1517570866}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 285ac580072891e4a90a9e60149bfa48,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: SaveDataPerAnimal, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -20622,7 +20628,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 349, y: 15.699951}
+  m_AnchoredPosition: {x: 349, y: 15.700195}
   m_SizeDelta: {x: -1309.113, y: -207.77496}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1920307006
@@ -25994,7 +26000,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 99.887, y: -332}
+  m_AnchoredPosition: {x: 99.88672, y: -332}
   m_SizeDelta: {x: 199.77283, y: 80.66214}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2083421575
@@ -43766,7 +43772,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00012207031, y: -404}
+  m_AnchoredPosition: {x: 0, y: -404}
   m_SizeDelta: {x: -74.04761, y: -200.37018}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7801048380591615906

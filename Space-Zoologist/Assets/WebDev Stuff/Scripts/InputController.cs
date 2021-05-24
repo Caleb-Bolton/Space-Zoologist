@@ -7,7 +7,8 @@ public class InputController : MonoBehaviour
 {
     [SerializeField] string OwnerID;
     [SerializeField] GameObject InputField;
-    [SerializeField] GameObject Initial;
+    [SerializeField] SaveDataPerAnimal InitialAnimal;
+    [SerializeField] SaveDataPerAnimal CurrentAnimal;
     [SerializeField] int selectPos;
     [SerializeField] int selectEndPos;
     [SerializeField] GameObject NotesPrefab;
@@ -15,7 +16,7 @@ public class InputController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LoadText(Initial);
+        LoadAnimal(InitialAnimal);
     }
 
     // Update is called once per frame
@@ -24,27 +25,42 @@ public class InputController : MonoBehaviour
         selectPos = InputField.GetComponent<TMP_InputField>().selectionAnchorPosition;
         selectEndPos = InputField.GetComponent<TMP_InputField>().selectionFocusPosition;
     }
-    public void SaveInput(string s)
+    public void SaveInputField(string s)
     {
-        if(OwnerID == null)
+        if(this.CurrentAnimal == null)
         {
-            Debug.LogError("null OwnerID");
+            Debug.LogError("null CurrentAnimal");
         }
         else
         {
-            PlayerPrefs.SetString(OwnerID, s);
+            CurrentAnimal.NoteText = InputField.GetComponent<TMP_InputField>().text;
         }
     }
-    public void LoadText(GameObject Button)
+    public void LoadAnimal(SaveDataPerAnimal Animal)
     {
-        this.OwnerID = Button.name;
-       // Debug.Log("load OwnerID: " + OwnerID);
-        if(InputField != null)
+        this.CurrentAnimal = Animal;
+        //load text
+        InputField.GetComponent<TMP_InputField>().text = CurrentAnimal.NoteText;
+        //delete previous sticky notes if any
+        foreach (Transform child in Scrollpanel.transform)
         {
-            InputField.GetComponent<TMP_InputField>().text = PlayerPrefs.GetString(OwnerID);
+            GameObject.Destroy(child.gameObject);
+        }
+        //load sticky notes
+
+        for (int i = 0; i <CurrentAnimal.StickyNotes.Count; i++)
+        {
+            var SN = CurrentAnimal.StickyNotes[i];
+            var NewNote = Instantiate(NotesPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+            NewNote.transform.SetParent(Scrollpanel.transform);
+            NewNote.GetComponent<NoteController>().CreateNote(SN, i);
         }
     }
 
+    public void DeleteStickyNote(int index)
+    {
+        this.CurrentAnimal.StickyNotes.RemoveAt(index);
+    }
     public void RetrieveText()
     {
         var SP = selectPos;
@@ -59,11 +75,10 @@ public class InputController : MonoBehaviour
         {
             var OriginalText = InputField.GetComponent<TMP_InputField>().text;
             var SelectedText = OriginalText.Substring(SP, SEP - SP);
+            this.CurrentAnimal.StickyNotes.Add(SelectedText);
             var NewNote = Instantiate(NotesPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
             NewNote.transform.SetParent(Scrollpanel.transform);
-            NewNote.GetComponent<NoteController>().CreateNote(SelectedText, OwnerID);
-
-
+            NewNote.GetComponent<NoteController>().CreateNote(SelectedText, this.CurrentAnimal.StickyNotes.Count);
         }
 
     }

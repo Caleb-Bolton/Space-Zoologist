@@ -6,8 +6,9 @@ using TMPro;
 public class NoteController : MonoBehaviour
 {
     [SerializeField] public string note;
-    [SerializeField] public string ID;
+    [SerializeField] public int index;
     [SerializeField] GameObject TextContainer;
+    [SerializeField] GameObject InputController;
     void Start()
     {
         
@@ -22,12 +23,12 @@ public class NoteController : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
-    public void CreateNote(string s, string id)
+    public void CreateNote(string s, int index)
     {
         if(s != null)
         {
-            ID = id;
             note = s;
+            this.index = index;
             TextContainer.GetComponent<TMP_Text>().text = s;
             //TODO:: Save Notes
         }
