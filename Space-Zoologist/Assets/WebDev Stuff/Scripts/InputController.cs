@@ -5,7 +5,6 @@ using TMPro;
 using UnityEngine.UI;
 public class InputController : MonoBehaviour
 {
-    [SerializeField] string OwnerID;
     [SerializeField] GameObject InputField;
     [SerializeField] SaveDataPerAnimal InitialAnimal;
     [SerializeField] SaveDataPerAnimal CurrentAnimal;
@@ -55,6 +54,12 @@ public class InputController : MonoBehaviour
             NewNote.transform.SetParent(Scrollpanel.transform);
             NewNote.GetComponent<NoteController>().CreateNote(SN, i, this.gameObject);
         }
+    }
+    public void LoadEncycloAnimal(SaveDataPerAnimal Animal)
+    {
+        this.CurrentAnimal = Animal;
+        //load text
+        InputField.GetComponent<TMP_InputField>().text = CurrentAnimal.NoteText;
     }
 
     public void DeleteStickyNote(int index)

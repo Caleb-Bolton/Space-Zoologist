@@ -10,7 +10,8 @@ public class EncyclopediaScript : MonoBehaviour
     [SerializeField] private TMP_Dropdown Items;
     [SerializeField] private TMP_Text ItemLabel;
     [SerializeField] private TMP_Text TextContainer;
-
+    [SerializeField] public GameObject NotesInput;
+    [SerializeField] public List<SaveDataPerAnimal> Animals;
     [SerializeField] private ScrollRect scrollBar;
     List<string> animalList = new List<string> {"Goat", "Hedge", "Snake", "Strot", "Prey"};
     List<string> foodList = new List<string> {"Space Maple", "Apple", "Grass"};
@@ -44,18 +45,28 @@ public class EncyclopediaScript : MonoBehaviour
         if (currentCategory == "Animals"){
             switch(currentItem){
                 case "Goat":
+                    
+                    NotesInput.GetComponent<EncycloInputController>().LoadEncycloAnimal(Animals[0]);
                     TextContainer.text = "Goat Text";
                     break;
                 case "Hedge":
+                    
+                    NotesInput.GetComponent<EncycloInputController>().LoadEncycloAnimal(Animals[1]);
                     TextContainer.text = "Hedge Text";
                     break;
                 case "Snake":
+                    
+                    NotesInput.GetComponent<EncycloInputController>().LoadEncycloAnimal(Animals[2]);
                     TextContainer.text = "Snake Text";
                     break;
                 case "Strot":
+                    
+                    NotesInput.GetComponent<EncycloInputController>().LoadEncycloAnimal(Animals[3]);
                     TextContainer.text = "Strot Text";
                     break;
                 case "Prey":
+                    
+                    NotesInput.GetComponent<EncycloInputController>().LoadEncycloAnimal(Animals[4]);
                     TextContainer.text = "Prey Text";
                     break;
                 default:
