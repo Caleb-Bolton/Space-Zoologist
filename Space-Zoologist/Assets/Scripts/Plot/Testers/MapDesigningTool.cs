@@ -90,7 +90,7 @@ public class MapDesigningTool : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            foodSourceManager.placeFood(this.tileSystem.WorldToCell(this.mainCamera.ScreenToWorldPoint(Input.mousePosition)), this.selectedFood);
+            foodSourceManager.PlaceFood(this.tileSystem.WorldToCell(this.mainCamera.ScreenToWorldPoint(Input.mousePosition)), this.selectedFood);
         }
         if (Input.GetMouseButtonDown(1))
         {

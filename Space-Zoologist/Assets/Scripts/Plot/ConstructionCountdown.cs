@@ -11,15 +11,15 @@ public class ConstructionCountdown : MonoBehaviour
     public void Initialize(Vector2Int pos, int time, int progress = -1)
     {
         this.position = pos;
-        this.progress = progress == -1 ? time : progress;
+        this.progress = progress == -1 ? 0 : progress;
         this.target = time;
         this.material = this.gameObject.GetComponent<SpriteRenderer>().material;
-        this.material.SetFloat("Target", this.target);
+        this.material.SetFloat("_Target", this.target + 1); //Add 1 to enhance graphical representation
     }
     public void CountDown()
     {
         this.progress += 1;
-        this.material.SetFloat("Progress", this.progress);
+        this.material.SetFloat("_Progress", this.progress + 1);//Add 1 to enhance graphical representation
         // TODO animate material
     }
     public bool IsFinished()

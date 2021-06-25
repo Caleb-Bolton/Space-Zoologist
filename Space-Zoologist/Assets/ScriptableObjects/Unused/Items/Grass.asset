@@ -18,3 +18,5 @@ MonoBehaviour:
   price: 0
   description: 
   icon: {fileID: -1347532211411968617, guid: 40dfdc042b489cd4d9616473473c0922, type: 3}
+  audio: []
+  BuildTime: 1

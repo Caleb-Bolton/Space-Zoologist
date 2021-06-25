@@ -21,7 +21,8 @@ public class FoodSourceManager : GridObjectManager
     [SerializeField] LevelDataReference LevelDataReference = default;
     [SerializeField] TileSystem TileSystem = default;
     [SerializeField] GridSystem GridSystem = default;
-    [SerializeField] private FoodPlacer FoodPlacer = default;
+    [SerializeField] BuildBufferManager buildBufferManager = default;
+    public Color constructionColor = new Color(0.5f, 1f, 0.5f, 1f);//Green
 
     private void Awake()
     {
@@ -86,7 +87,14 @@ public class FoodSourceManager : GridObjectManager
         FoodSource foodSource = newFoodSourceGameObject.GetComponent<FoodSource>();
         foodSource.InitializeFoodSource(species, position, this.TileSystem);
         foodSources.Add(foodSource);
-
+        Vector2 pos = position;
+        if (species.Size % 2 == 0)
+        {
+            pos.x -= 1;
+            pos.y -= 1;
+        }
+        GridSystem.AddFood(GridSystem.Grid.WorldToCell(pos), species.Size, newFoodSourceGameObject);
+        this.buildBufferManager.CreateSquareBuffer(new Vector2Int((int)pos.x, (int)pos.y), ttb, species.Size, this.constructionColor);
         if (!foodSourcesBySpecies.ContainsKey(foodSource.Species))
         {
             foodSourcesBySpecies.Add(foodSource.Species, new List<FoodSource>());
@@ -240,7 +248,7 @@ public class FoodSourceManager : GridObjectManager
         }
     }
 
-    public void placeFood(Vector3Int mouseGridPosition, FoodSourceSpecies species)
+    public void PlaceFood(Vector3Int mouseGridPosition, FoodSourceSpecies species, int ttb = -1)
     {
         Vector3Int pos;
         //base.GridSystem.CellGrid[mouseGridPosition.x, mouseGridPosition.y].Food = FoodSourceManager.CreateFoodSource(selectedItem.ID, mousePosition);
@@ -292,5 +300,6 @@ public class FoodSourceManager : GridObjectManager
                 }
             }
         }
+        CreateFoodSource(species, FoodLocation, ttb);
     }
 }

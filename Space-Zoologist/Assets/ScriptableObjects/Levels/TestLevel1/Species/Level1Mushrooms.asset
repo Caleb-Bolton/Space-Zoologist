@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Level1Mushrooms
   m_EditorClassIdentifier: 
   size: 1
+  buildTime: 2
   accessibleTerrain: 060000000200000003000000
   speciesName: Mushrooms
   rootRadius: 1
@@ -22,6 +23,7 @@ MonoBehaviour:
     needs:
     - needName: Liquid
       severity: 1
+      isPreferred: 0
       conditions:
       - Condition: 0
         Behavior: {fileID: 0}
@@ -29,4 +31,16 @@ MonoBehaviour:
         Behavior: {fileID: 0}
       thresholds:
       - 0.5
+  - needType: 4
+    needs:
+    - needName: Water
+      severity: 1
+      isPreferred: 0
+      conditions:
+      - Condition: 0
+        Behavior: {fileID: 0}
+      - Condition: 2
+        Behavior: {fileID: 0}
+      thresholds:
+      - 0.939
   FoodSource: {fileID: 11400000, guid: 38cda74f699f241129cf6815fa33a73c, type: 2}

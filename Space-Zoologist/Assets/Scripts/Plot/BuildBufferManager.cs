@@ -33,7 +33,7 @@ public class BuildBufferManager : GridObjectManager
                 foreach (Vector3 coord in coords)
                 {
                     Vector2Int pos = new Vector2Int((int)coord.x, (int)coord.y);
-                    this.CreateBuffer(pos, (int)coord.z, new Color(v4.x,v4.y,v4.z), (int)v4.w);
+                    this.CreateUnitBuffer(pos, (int)coord.z, new Color(v4.x,v4.y,v4.z), (int)v4.w);
                 }
             }
         }
@@ -45,14 +45,15 @@ public class BuildBufferManager : GridObjectManager
             serializedMapObjects.AddType(this.MapObjectName, new GridItemSet(this.SerializeColorAndTotal(keyValuePair.Key), this.GetPositionsAndTimes(keyValuePair.Value)));
         }              
     }
-    public void CreateBuffer(Vector2Int pos, int time, Color color, int progress = -1)
+    public void CreateUnitBuffer(Vector2Int pos, int time, Color color, int progress = -1)
     {
         if (time == 0 || time == -1)
         {
             return;
         }
-        GameObject newGo = Instantiate(this.bufferGO);
-        
+        this.isConstructing[pos.x, pos.y] = true;
+        GameObject newGo = Instantiate(this.bufferGO, this.gameObject.transform);
+        Debug.Log("Placing item under constuction");
         newGo.transform.position = new Vector3(pos.x, pos.y, 0);
         color.a = 1; //Enforce alpha channel to be 1, prevent human error
 
@@ -66,6 +67,84 @@ public class BuildBufferManager : GridObjectManager
         }
         this.colorTimesToCCs[colorTimePair].Add(cc);
 
+    }
+    public void CreateSquareBuffer(Vector2Int pos, int time, int size, Color color, int progress = -1)
+    {
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                this.CreateUnitBuffer(new Vector2Int(pos.x + i, pos.y + j), time, color, progress);
+            }
+
+        }
+    }
+    public ConstructionCountdown GetBuffer(Vector2Int pos)
+    {
+        if (!this.isConstructing[pos.x, pos.y])
+        {
+            return null;
+        }
+        Vector4[] av4 = this.colorTimesToCCs.Keys.ToArray();
+        List<Vector3Int> changedTiles = new List<Vector3Int>();
+        List<ConstructionCountdown>[] aCCs = this.colorTimesToCCs.Values.ToArray();
+        for (int i = this.colorTimesToCCs.Values.Count - 1; i >= 0; i--)
+        {
+            List<ConstructionCountdown> ccs = aCCs[i];
+            for (int j = ccs.Count - 1; j >= 0; j--)
+            {
+                ConstructionCountdown cc = ccs[j];
+                if (pos == cc.position)
+                {
+                    return cc;
+                }
+            }
+        }
+        return null;
+    }
+    public void DestoryBuffer(Vector2Int pos, int size = 1)
+    {
+        if (!this.isConstructing[pos.x, pos.y])
+        {
+            Debug.Log("No construction buffer to remove, proceeding");
+            return;
+        }
+        HashSet<Vector2Int> bufferToRemove = new HashSet<Vector2Int>();
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                bufferToRemove.Add(new Vector2Int(pos.x + i, pos.y + j));
+            }
+
+        }
+        Vector4[] av4 = this.colorTimesToCCs.Keys.ToArray();
+        List<Vector3Int> changedTiles = new List<Vector3Int>();
+        List<ConstructionCountdown>[] aCCs = this.colorTimesToCCs.Values.ToArray();
+        for (int i = this.colorTimesToCCs.Values.Count - 1; i >= 0; i--)
+        {
+            List<ConstructionCountdown> ccs = aCCs[i];
+            for (int j = ccs.Count - 1; j >= 0; j--)
+            {
+                ConstructionCountdown cc = ccs[j];
+                if (bufferToRemove.Contains(cc.position))
+                {
+                    this.isConstructing[(int)cc.position.x, (int)cc.position.y] = false;
+                    ccs.RemoveAt(j);
+                    changedTiles.Add(new Vector3Int(cc.position.x, cc.position.y, 0));
+                    Destroy(cc.gameObject);
+                }
+            }
+            if (ccs.Count == 0)
+            {
+                this.colorTimesToCCs.Remove(av4[i]);
+            }
+        }
+        //Report updates to RPM
+        if (changedTiles.Count > 0)
+        {
+            this.RPM.UpdateAccessMapChangedAt(changedTiles);
+        }
     }
     public void CountDown()
     {
@@ -83,9 +162,9 @@ public class BuildBufferManager : GridObjectManager
                 {
                     this.isConstructing[(int)cc.position.x, (int)cc.position.y] = false;
                     ccs.RemoveAt(j);
+                    changedTiles.Add(new Vector3Int(cc.position.x, cc.position.y, 0));
+                    Destroy(cc.gameObject);
                 }
-                changedTiles.Add(new Vector3Int(cc.position.x, cc.position.y, 0));
-                Destroy(cc.gameObject);
             }
             if (ccs.Count == 0)
             {

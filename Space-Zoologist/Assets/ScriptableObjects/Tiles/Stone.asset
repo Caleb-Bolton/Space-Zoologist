@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb43224d6f3ee97448552e334a6e0c8f, type: 3}
-  m_Name: Wall
+  m_Name: Stone
   m_EditorClassIdentifier: 
-  id: Wall
+  id: Stone
   type: 1
-  itemName: Wall
+  itemName: Stone
   price: 0
   description: 
-  icon: {fileID: 1856567207279646495, guid: 1863acd83f712ef4c998dbd95207a950, type: 3}
+  icon: {fileID: 8399011212269539787, guid: 441771a373ba2434b994a5ff796b68ee, type: 3}
   audio:
-  - {fileID: 8300000, guid: e54504dfe43cd407da9ac0c5b24145f4, type: 3}
-  - {fileID: 8300000, guid: 7267b17609a394fb9ac9a1791c2a7bb2, type: 3}
+  - {fileID: 8300000, guid: 929ae33b76eff421abbb4f0b6f24346b, type: 3}
+  - {fileID: 8300000, guid: fd3448b813cd2401784f3c3e54b01919, type: 3}
   BuildTime: 1

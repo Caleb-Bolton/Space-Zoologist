@@ -12,10 +12,8 @@ public class FoodSourceSpecies : ScriptableObject
     public Item FoodSourceItem => FoodSource;
     public List<TileType> AccessibleTerrain => accessibleTerrain;
     public int Size => size;
-    public int BuildTime => buildTime;
 
     [SerializeField] private int size = 1; // default to 1 tile big
-    [SerializeField] private int buildTime = 1; // default to 1 day
     [SerializeField] private List<TileType> accessibleTerrain = default;
     [SerializeField] private string speciesName = default;
     [SerializeField] private int rootRadius = default;

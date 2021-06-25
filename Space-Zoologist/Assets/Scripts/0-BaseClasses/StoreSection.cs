@@ -38,6 +38,16 @@ public class StoreSection : MonoBehaviour
         this.PlayerBalanceDisplay = playerBalanceDisplay;
         this.ResourceManager = resourceManager;
     }
+    public Item GetItemByID(string id)
+    {
+        foreach (Item item in this.storeItems.Keys)
+        {
+            if (item.ID.Equals(id))
+            {
+                return item;            }
+        }
+        return null;
+    }
 
     public void Update()
     {

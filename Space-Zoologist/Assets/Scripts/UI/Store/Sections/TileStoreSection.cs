@@ -58,7 +58,7 @@ public class TileStoreSection : StoreSection
         isPlacing = false;
         foreach (Vector3Int pos in this.tilePlacementController.addedTiles)
         {
-            this.buildBufferManager.CreateBuffer(new Vector2Int(pos.x,pos.y), this.selectedItem.buildTime, constructionColor);
+            this.buildBufferManager.CreateUnitBuffer(new Vector2Int(pos.x,pos.y), this.selectedItem.buildTime, constructionColor);
         }
         this.EnclosureSystem.UpdateEnclosedAreas();
         tilePlacementController.StopPreview();

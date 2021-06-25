@@ -9,12 +9,9 @@ using UnityEngine.EventSystems;
 public class FoodSourceStoreSection : StoreSection
 {
     [SerializeField] FoodSourceManager FoodSourceManager = default;
-    private BuildBufferManager buildBufferManager;
-    private Color constructionColor = new Color(0.5f, 0.5f, 1f, 1f);//Green
 
     public override void Initialize()
     {
-        this.buildBufferManager = FindObjectOfType<BuildBufferManager>();
         base.itemType = ItemType.Food;
         base.Initialize();
     }
@@ -24,7 +21,6 @@ public class FoodSourceStoreSection : StoreSection
         selectedItem = item;
         placeFood(mouseGridPosition);
     }
-
     /// <summary>
     /// Handles the click release on the cursor item.
     /// </summary>
@@ -53,8 +49,8 @@ public class FoodSourceStoreSection : StoreSection
             placeFood(mouseGridPosition);
         }
     }
-
-    public void placeFood(Vector3Int mouseGridPosition, FoodSourceSpecies foodSource = null)
+    
+    public void PlaceFood(Vector3 mousePosition)
     {
         FoodSourceSpecies species = base.GridSystem.PlacementValidation.GetFoodSpecies(selectedItem);
         Vector3Int Temp = mouseGridPosition;
@@ -74,8 +70,11 @@ public class FoodSourceStoreSection : StoreSection
             //size is even: place it at cross-center (position of tile)
             FoodLocation = base.GridSystem.Grid.CellToWorld(Temp);
         }
-        Food = FoodSourceManager.CreateFoodSource(selectedItem.ID, FoodLocation);
-        this.buildBufferManager.CreateBuffer(new Vector2Int(mouseGridPosition.x, mouseGridPosition.y), this.selectedItem.buildTime, this.constructionColor);
-        GridSystem.AddFood(mouseGridPosition, species.Size, Food);
+        base.playerBalance.SubtractFromBalance(selectedItem.Price);
+        base.ResourceManager.Placed(selectedItem, 1);
+        base.HandleAudio();
+        base.audioSource.Play();
+        Vector3Int mouseGridPosition = base.GridSystem.Grid.WorldToCell(mousePosition);
+        FoodSourceManager.PlaceFood(mouseGridPosition, base.GridSystem.PlacementValidation.GetFoodSpecies(selectedItem), this.selectedItem.buildTime);
     }
 }
