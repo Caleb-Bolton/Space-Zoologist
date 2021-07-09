@@ -11,8 +11,6 @@ public class PauseManager : MonoBehaviour
     [SerializeField] public GameObject PauseButton = default;
     [SerializeField] private Sprite PauseSprite = default;
     [SerializeField] private Sprite ResumeSprite = default;
-    [SerializeField] private List<AudioClip> PlayPause = default;
-    private AudioSource audioSource = default;
     private Image PauseButtonSprite = default;
     private Button PauseButtonButton = default;
 
@@ -79,15 +77,7 @@ public class PauseManager : MonoBehaviour
         this.BehaviorPatternUpdater.IsPaused = true;
         this.PauseAllAnimalsMovementController();
         this.GridSystem.UpdateAnimalCellGrid();
-        if (audioSource == null)
-        {
-            audioSource = this.GetComponent<AudioSource>();
-        }
-        else
-        {
-            audioSource.clip = PlayPause[0];
-        }
-        audioSource.Play();
+        AudioManager.instance.PlayOneShot(SFXType.Pause);
     }
 
     public void Unpause()
@@ -98,8 +88,7 @@ public class PauseManager : MonoBehaviour
         this.PauseButtonButton.onClick.AddListener(this.Pause);
         this.BehaviorPatternUpdater.IsPaused = false;
         this.UnpauseAllAnimalsMovementController();
-        audioSource.clip = PlayPause[1];
-        audioSource.Play();
+        AudioManager.instance.PlayOneShot(SFXType.Unpause);
     }
 
     public void TwoTimeSpeed() {

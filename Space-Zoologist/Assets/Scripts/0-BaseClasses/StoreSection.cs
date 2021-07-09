@@ -26,7 +26,6 @@ public class StoreSection : MonoBehaviour
     private GridOverlay gridOverlay = default;
     protected Item selectedItem = null;
     private Vector3Int previousLocation = default;
-    protected AudioSource audioSource = default;
     protected int currentAudioIndex = 0;
 
     public void SetupDependencies(LevelDataReference levelData, CursorItem cursorItem, List<RectTransform> UIElements, GridSystem gridSystem, PlayerBalance playerBalance, CanvasObjectStrobe playerBalanceDisplay, ResourceManager resourceManager)
@@ -36,7 +35,6 @@ public class StoreSection : MonoBehaviour
         this.UIElements = UIElements;
         this.GridSystem = gridSystem;
         gridOverlay = GridSystem.gameObject.GetComponent<GridOverlay>();
-        audioSource = this.GetComponent<AudioSource>();
         this.playerBalance = playerBalance;
         this.PlayerBalanceDisplay = playerBalanceDisplay;
         this.ResourceManager = resourceManager;
@@ -192,7 +190,6 @@ public class StoreSection : MonoBehaviour
                 currentAudioIndex = 0;
             }
         }
-        audioSource.clip = selectedItem.AudioClips[currentAudioIndex];
-        audioSource.Play();
+        AudioManager.instance.PlayOneShot(selectedItem.AudioClips[currentAudioIndex]);
     }
 }

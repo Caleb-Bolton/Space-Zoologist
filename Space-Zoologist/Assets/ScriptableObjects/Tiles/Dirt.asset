@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb43224d6f3ee97448552e334a6e0c8f, type: 3}
   m_Name: Dirt
   m_EditorClassIdentifier: 
-  AudioClips: []
   id: Dirt
   type: 1
   itemName: Dirt
   price: 1
   description: 
   icon: {fileID: -8275502208090371910, guid: 3453f0993e49cdd47a17df06d851dce5, type: 3}
-  audio: []
+  audio:
+  - {fileID: 8300000, guid: 5e61a43cc797e48649c3042533d84361, type: 3}
+  - {fileID: 8300000, guid: 22649a8fd3a904233b5e0f96bb580a66, type: 3}
+  BuildTime: 0

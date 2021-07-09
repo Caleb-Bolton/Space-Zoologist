@@ -65,6 +65,7 @@ public class Inspector : MonoBehaviour
             this.UnHighlightAll();
             EventManager.Instance.InvokeEvent(EventType.InspectorClosed, null);
             this.IsInInspectorMode = !IsInInspectorMode;
+            AudioManager.instance.PlayOneShot(SFXType.MenuClose);
         }
 
     }
@@ -80,6 +81,7 @@ public class Inspector : MonoBehaviour
         //this.HUD.SetActive(false);
         EventManager.Instance.InvokeEvent(EventType.InspectorOpened, null);
         this.IsInInspectorMode = !IsInInspectorMode;
+        AudioManager.instance.PlayOneShot(SFXType.MenuOpen);
     }
 
     /// <summary>
@@ -87,6 +89,7 @@ public class Inspector : MonoBehaviour
     /// </summary>
     public void ToggleInspectMode()
     {
+
         // Toggle button text, displays and pause/free animals
         if (!this.IsInInspectorMode)
         {
@@ -240,6 +243,7 @@ public class Inspector : MonoBehaviour
             DisplayAreaText(pos);
             selectedPosition = pos;
         }
+        AudioManager.instance.PlayOneShot(SFXType.Notification);
 
         // Reset dropdown selections
         this.enclosedAreaDropdown.value = 0;

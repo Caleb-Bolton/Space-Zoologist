@@ -126,6 +126,7 @@ public class MenuManager : MonoBehaviour
 
         MenuSelectPanel.gameObject.SetActive(false);
         CurrentMenuText.text = menuNames[curMenu];
+        AudioManager.instance.PlayOneShot(SFXType.TabSwitch);
     }
 
     public void ToggleMenuSelectPanel() {

@@ -36,6 +36,7 @@ public class TimeSystem : MonoBehaviour
         }
         this.Inspector.UpdateCurrentDisplay();
         this.buildBufferManager.CountDown();
+        AudioManager.instance.PlayOneShot(SFXType.FastForward);
         UpdateDayText(++currentDay);
     }
 
